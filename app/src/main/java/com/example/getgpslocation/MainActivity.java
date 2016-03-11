@@ -9,39 +9,75 @@ import android.widget.Toast;
 
 public class MainActivity extends ActionBarActivity {
 
-	Button btnShowLocation;
+	Button btnSetStart, btnSetEnd, btnDistance;
 	
 	GPSTracker gps;
+
+	double startLat, startLng, endLat, endLng;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         
-        btnShowLocation = (Button) findViewById(R.id.show_location);
+        btnSetStart = (Button) findViewById(R.id.set_start);
+		btnSetEnd = (Button) findViewById(R.id.set_end);
+		btnDistance = (Button) findViewById(R.id.find_distance);
         
-        btnShowLocation.setOnClickListener(new View.OnClickListener() {
-			
+        btnSetStart.setOnClickListener(new View.OnClickListener() {
+
 			@Override
 			public void onClick(View v) {
 				gps = new GPSTracker(MainActivity.this);
-				float distanceToAla;
-				
-				if(gps.canGetLocation()) {
-					double latitude = gps.getLatitude();
-					double longitude = gps.getLongitude();
 
-					//Calculate distance from current location to Ala Moana in meters
-					distanceToAla = gps.getDistanceTo(latitude, longitude, 21.2919, -157.8436);
-					
+				if (gps.canGetLocation()) {
+					startLat = gps.getLatitude();
+					startLng = gps.getLongitude();
+
+
 					Toast.makeText(
 							getApplicationContext(),
-							"Your Location is -\nLat: " + latitude + "\nLong: "
-									+ longitude + "\ndistance to Ala Moana is: \n"
-									+ distanceToAla + " meters", Toast.LENGTH_LONG).show();
+							"Your Location is -\nLat: " + startLat + "\nLong: "
+									+ startLng, Toast.LENGTH_LONG).show();
 				} else {
 					gps.showSettingsAlert();
 				}
+			}
+		});
+		btnSetEnd.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				gps = new GPSTracker(MainActivity.this);
+
+				if (gps.canGetLocation()) {
+					endLat = gps.getLatitude();
+					endLng = gps.getLongitude();
+
+					Toast.makeText(
+							getApplicationContext(),
+							"Your Location is -\nLat: " + endLat + "\nLong: "
+									+ endLng, Toast.LENGTH_LONG).show();
+				} else {
+					gps.showSettingsAlert();
+				}
+			}
+		});
+		btnDistance.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				gps = new GPSTracker(MainActivity.this);
+				double distanceToAla;
+
+				//Calculate distance from start location to end location
+				distanceToAla = gps.getDistanceTo(startLat, startLng, endLat, endLng);
+
+				Toast.makeText(
+						getApplicationContext(),
+						"Distance between start and end is: " + distanceToAla + " meters",
+							Toast.LENGTH_LONG).show();
+
 			}
 		});
     }

@@ -246,7 +246,7 @@ int id action_context_bar 0x7f0b001d
 int id action_menu_divider 0x7f0b0001
 int id action_menu_presenter 0x7f0b0002
 int id action_mode_close_button 0x7f0b0024
-int id action_settings 0x7f0b003d
+int id action_settings 0x7f0b003f
 int id activity_chooser_view_content 0x7f0b0025
 int id always 0x7f0b0013
 int id beginning 0x7f0b000f
@@ -260,6 +260,7 @@ int id edit_query 0x7f0b0030
 int id end 0x7f0b0010
 int id expand_activities_button 0x7f0b0026
 int id expanded_menu 0x7f0b002c
+int id find_distance 0x7f0b003e
 int id home 0x7f0b0003
 int id homeAsUp 0x7f0b000a
 int id icon 0x7f0b002a
@@ -284,11 +285,12 @@ int id search_mag_icon 0x7f0b0035
 int id search_plate 0x7f0b0036
 int id search_src_text 0x7f0b0037
 int id search_voice_btn 0x7f0b003b
+int id set_end 0x7f0b003d
+int id set_start 0x7f0b003c
 int id shortcut 0x7f0b002e
 int id showCustom 0x7f0b000b
 int id showHome 0x7f0b000c
 int id showTitle 0x7f0b000d
-int id show_location 0x7f0b003c
 int id split_action_bar 0x7f0b001e
 int id submit_area 0x7f0b0039
 int id tabMode 0x7f0b0008
