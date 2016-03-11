@@ -1,0 +1,48 @@
+package com.example.getgpslocation;
+
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
+
+
+public class MainActivity extends ActionBarActivity {
+
+	Button btnShowLocation;
+	
+	GPSTracker gps;
+	
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        btnShowLocation = (Button) findViewById(R.id.show_location);
+        
+        btnShowLocation.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				gps = new GPSTracker(MainActivity.this);
+				float distanceToAla;
+				
+				if(gps.canGetLocation()) {
+					double latitude = gps.getLatitude();
+					double longitude = gps.getLongitude();
+
+					//Calculate distance from current location to Ala Moana in meters
+					distanceToAla = gps.getDistanceTo(latitude, longitude, 21.2919, -157.8436);
+					
+					Toast.makeText(
+							getApplicationContext(),
+							"Your Location is -\nLat: " + latitude + "\nLong: "
+									+ longitude + "\ndistance to Ala Moana is: \n"
+									+ distanceToAla + " meters", Toast.LENGTH_LONG).show();
+				} else {
+					gps.showSettingsAlert();
+				}
+			}
+		});
+    }
+}
