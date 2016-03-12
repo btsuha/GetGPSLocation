@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+
 	<Button
 		android:id="@+id/set_start"
 		android:layout_width="wrap_content"
@@ -26,5 +27,27 @@
 		android:text="Find Distance"
 		android:layout_centerHorizontal="true"
 		android:layout_below="@+id/set_end"/>
+
+	<ProgressBar
+		style="?android:attr/progressBarStyleHorizontal"
+		android:layout_width="350dp"
+		android:layout_height="350dp"
+		android:id="@+id/progressBar"
+		android:layout_centerVertical="true"
+		android:layout_centerHorizontal="true"
+		android:indeterminate="false"
+		android:max="100"
+		android:progress="45"
+		android:progressDrawable="@drawable/circular_progress_bar"/>
+
+	<EditText
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:inputType="number"
+		android:ems="10"
+		android:id="@+id/editText"
+		android:layout_alignParentTop="true"
+		android:layout_centerHorizontal="true"
+		android:layout_above="@+id/progressBar" />
 
 </RelativeLayout>

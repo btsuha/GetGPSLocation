@@ -1,15 +1,21 @@
 package com.example.getgpslocation;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
 	Button btnSetStart, btnSetEnd, btnDistance;
+	ProgressBar barTimer;
+	EditText chooseProgress;
 	
 	GPSTracker gps;
 
@@ -23,8 +29,10 @@ public class MainActivity extends ActionBarActivity {
         btnSetStart = (Button) findViewById(R.id.set_start);
 		btnSetEnd = (Button) findViewById(R.id.set_end);
 		btnDistance = (Button) findViewById(R.id.find_distance);
-        
-        btnSetStart.setOnClickListener(new View.OnClickListener() {
+		barTimer = (ProgressBar) findViewById(R.id.progressBar);
+		chooseProgress = (EditText) findViewById(R.id.editText);
+
+		btnSetStart.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -67,6 +75,9 @@ public class MainActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
+				int val = Integer.valueOf(chooseProgress.getText().toString());
+				barTimer.setProgress(val);
+
 				gps = new GPSTracker(MainActivity.this);
 				double distanceToAla;
 

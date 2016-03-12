@@ -234,7 +234,8 @@ int drawable abc_textfield_searchview_holo_dark 0x7f020053
 int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
-int drawable ic_launcher 0x7f020057
+int drawable circular_progress_bar 0x7f020057
+int drawable ic_launcher 0x7f020058
 int id action_bar 0x7f0b001c
 int id action_bar_activity_content 0x7f0b0000
 int id action_bar_container 0x7f0b001b
@@ -246,7 +247,7 @@ int id action_context_bar 0x7f0b001d
 int id action_menu_divider 0x7f0b0001
 int id action_menu_presenter 0x7f0b0002
 int id action_mode_close_button 0x7f0b0024
-int id action_settings 0x7f0b003f
+int id action_settings 0x7f0b0041
 int id activity_chooser_view_content 0x7f0b0025
 int id always 0x7f0b0013
 int id beginning 0x7f0b000f
@@ -256,6 +257,7 @@ int id default_activity_button 0x7f0b0028
 int id dialog 0x7f0b0018
 int id disableHome 0x7f0b0009
 int id dropdown 0x7f0b0019
+int id editText 0x7f0b0040
 int id edit_query 0x7f0b0030
 int id end 0x7f0b0010
 int id expand_activities_button 0x7f0b0026
@@ -272,6 +274,7 @@ int id middle 0x7f0b0011
 int id never 0x7f0b0016
 int id none 0x7f0b0012
 int id normal 0x7f0b0007
+int id progressBar 0x7f0b003f
 int id progress_circular 0x7f0b0004
 int id progress_horizontal 0x7f0b0005
 int id radio 0x7f0b002f
