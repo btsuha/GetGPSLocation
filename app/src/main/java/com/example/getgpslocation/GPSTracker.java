@@ -149,7 +149,7 @@ public class GPSTracker extends Service implements LocationListener{
 	}
 
 	//Finds distance between point A and point B with latitude and longitude
-	public double getDistanceTo(double latA, double lngA, double latB, double lngB) {
+	public float getDistanceTo(double latA, double lngA, double latB, double lngB) {
 		Location locationA = new Location("Point A");
 
 		locationA.setLatitude(latA);

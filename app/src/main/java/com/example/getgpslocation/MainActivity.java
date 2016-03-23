@@ -46,7 +46,7 @@ public class MainActivity extends ActionBarActivity {
 					Toast.makeText(
 							getApplicationContext(),
 							"Your Location is -\nLat: " + startLat + "\nLong: "
-									+ startLng, Toast.LENGTH_LONG).show();
+									+ startLng, Toast.LENGTH_SHORT).show();
 				} else {
 					gps.showSettingsAlert();
 				}
@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
 					Toast.makeText(
 							getApplicationContext(),
 							"Your Location is -\nLat: " + endLat + "\nLong: "
-									+ endLng, Toast.LENGTH_LONG).show();
+									+ endLng, Toast.LENGTH_SHORT).show();
 				} else {
 					gps.showSettingsAlert();
 				}
@@ -75,11 +75,8 @@ public class MainActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
-				int val = Integer.valueOf(chooseProgress.getText().toString());
-				barTimer.setProgress(val);
-
 				gps = new GPSTracker(MainActivity.this);
-				double distanceToAla;
+				float distanceToAla;
 
 				//Calculate distance from start location to end location
 				distanceToAla = gps.getDistanceTo(startLat, startLng, endLat, endLng);
@@ -89,6 +86,11 @@ public class MainActivity extends ActionBarActivity {
 						"Distance between start and end is: " + distanceToAla + " meters",
 							Toast.LENGTH_LONG).show();
 
+				int val;
+				if(!chooseProgress.getText().toString().equals("")) {
+					val = Integer.valueOf(chooseProgress.getText().toString());
+					barTimer.setProgress(val);
+				}
 			}
 		});
     }
