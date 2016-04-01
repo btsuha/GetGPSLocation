@@ -4,21 +4,6 @@
     android:layout_height="match_parent" >
 
 
-	<Button
-		android:id="@+id/set_start"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Set Start"
-		android:layout_centerHorizontal="true"
-		android:layout_above="@+id/set_end"/>
-
-	<Button
-		android:id="@+id/set_end"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:text="Set End"
-		android:layout_centerVertical="true"
-		android:layout_centerHorizontal="true" />
 
 	<Button
 		android:id="@+id/find_distance"
@@ -26,7 +11,8 @@
 		android:layout_height="wrap_content"
 		android:text="Find Distance"
 		android:layout_centerHorizontal="true"
-		android:layout_below="@+id/set_end"/>
+		android:layout_centerVertical="true"/>
+
 
 	<ProgressBar
 		style="?android:attr/progressBarStyleHorizontal"
@@ -41,7 +27,7 @@
 		android:progressDrawable="@drawable/circular_progress_bar"/>
 
 	<EditText
-		android:layout_width="wrap_content"
+		android:layout_width="60dp"
 		android:layout_height="wrap_content"
 		android:inputType="number"
 		android:ems="10"

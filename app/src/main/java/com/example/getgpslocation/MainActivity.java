@@ -25,20 +25,43 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        
-        btnSetStart = (Button) findViewById(R.id.set_start);
-		btnSetEnd = (Button) findViewById(R.id.set_end);
+
 		btnDistance = (Button) findViewById(R.id.find_distance);
 		barTimer = (ProgressBar) findViewById(R.id.progressBar);
 		chooseProgress = (EditText) findViewById(R.id.editText);
 
-		btnSetStart.setOnClickListener(new View.OnClickListener() {
+		gps = new GPSTracker(MainActivity.this);
+
+		btnDistance.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				gps = new GPSTracker(MainActivity.this);
+				float distanceToAla;
+		/*
+				//Calculate distance from start location to end location
+				distanceToAla = gps.getDistanceTo(startLat, startLng, endLat, endLng);
+		*/
+				distanceToAla = gps.getDistance();
 
+				Toast.makeText(
+						getApplicationContext(),
+						"Distance between start and end is: " + distanceToAla + " meters",
+						Toast.LENGTH_LONG).show();
+
+				int val;
+				if(!chooseProgress.getText().toString().equals("")) {
+					val = Integer.valueOf(chooseProgress.getText().toString());
+					barTimer.setProgress(val);
+				}
+			}
+		});
+
+		/*btnSetStart.setOnClickListener(new View.OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
 				if (gps.canGetLocation()) {
+					gps.getLocation();
 					startLat = gps.getLatitude();
 					startLng = gps.getLongitude();
 
@@ -56,9 +79,8 @@ public class MainActivity extends ActionBarActivity {
 
 			@Override
 			public void onClick(View v) {
-				gps = new GPSTracker(MainActivity.this);
-
 				if (gps.canGetLocation()) {
+					gps.getLocation();
 					endLat = gps.getLatitude();
 					endLng = gps.getLongitude();
 
@@ -70,28 +92,6 @@ public class MainActivity extends ActionBarActivity {
 					gps.showSettingsAlert();
 				}
 			}
-		});
-		btnDistance.setOnClickListener(new View.OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				gps = new GPSTracker(MainActivity.this);
-				float distanceToAla;
-
-				//Calculate distance from start location to end location
-				distanceToAla = gps.getDistanceTo(startLat, startLng, endLat, endLng);
-
-				Toast.makeText(
-						getApplicationContext(),
-						"Distance between start and end is: " + distanceToAla + " meters",
-							Toast.LENGTH_LONG).show();
-
-				int val;
-				if(!chooseProgress.getText().toString().equals("")) {
-					val = Integer.valueOf(chooseProgress.getText().toString());
-					barTimer.setProgress(val);
-				}
-			}
-		});
+		});*/
     }
 }

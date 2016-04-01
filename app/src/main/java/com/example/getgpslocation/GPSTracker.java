@@ -21,13 +21,14 @@ public class GPSTracker extends Service implements LocationListener{
 	boolean isNetworkEnabled = false;
 	boolean canGetLocation = false;
 	
-	Location location;
+	Location location, last;
+	long distance = 0;
 	
 	double latitude;
 	double longitude;
 	
-	private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
-	private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1;
+	private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10; //10 meters
+	private static final long MIN_TIME_BW_UPDATES = 1000*30; //30 seconds
 	
 	protected LocationManager locationManager;
 	
@@ -120,6 +121,7 @@ public class GPSTracker extends Service implements LocationListener{
 	public boolean canGetLocation() {
 		return this.canGetLocation;
 	}
+
 	
 	public void showSettingsAlert() {
 		AlertDialog.Builder alertDialog = new AlertDialog.Builder(context);
@@ -164,10 +166,25 @@ public class GPSTracker extends Service implements LocationListener{
 		return distance;
 	}
 
+	public long getDistance() {
+		return distance;
+	}
+
 	@Override
 	public void onLocationChanged(Location arg0) {
-		// TODO Auto-generated method stub
-		
+
+		if(last != null) {
+			if (arg0.getAccuracy() < 40) {
+				distance += arg0.distanceTo(last);
+				last = new Location(arg0);
+				Log.i("Info", "arg0 accuracy: " + arg0.getAccuracy());
+				Log.i("Info", "Accuracy: " + arg0.getAccuracy());
+				Log.i("Info", "Distance to last " + arg0.distanceTo(last));
+			}
+		}
+		else {
+			last = new Location(arg0);
+		}
 	}
 
 	@Override

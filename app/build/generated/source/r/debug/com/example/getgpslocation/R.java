@@ -828,7 +828,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f0b0001;
         public static final int action_menu_presenter=0x7f0b0002;
         public static final int action_mode_close_button=0x7f0b0024;
-        public static final int action_settings=0x7f0b0041;
+        public static final int action_settings=0x7f0b003f;
         public static final int activity_chooser_view_content=0x7f0b0025;
         public static final int always=0x7f0b0013;
         public static final int beginning=0x7f0b000f;
@@ -838,12 +838,12 @@ containing a value of this type.
         public static final int dialog=0x7f0b0018;
         public static final int disableHome=0x7f0b0009;
         public static final int dropdown=0x7f0b0019;
-        public static final int editText=0x7f0b0040;
+        public static final int editText=0x7f0b003e;
         public static final int edit_query=0x7f0b0030;
         public static final int end=0x7f0b0010;
         public static final int expand_activities_button=0x7f0b0026;
         public static final int expanded_menu=0x7f0b002c;
-        public static final int find_distance=0x7f0b003e;
+        public static final int find_distance=0x7f0b003c;
         public static final int home=0x7f0b0003;
         public static final int homeAsUp=0x7f0b000a;
         public static final int icon=0x7f0b002a;
@@ -855,7 +855,7 @@ containing a value of this type.
         public static final int never=0x7f0b0016;
         public static final int none=0x7f0b0012;
         public static final int normal=0x7f0b0007;
-        public static final int progressBar=0x7f0b003f;
+        public static final int progressBar=0x7f0b003d;
         public static final int progress_circular=0x7f0b0004;
         public static final int progress_horizontal=0x7f0b0005;
         public static final int radio=0x7f0b002f;
@@ -869,8 +869,6 @@ containing a value of this type.
         public static final int search_plate=0x7f0b0036;
         public static final int search_src_text=0x7f0b0037;
         public static final int search_voice_btn=0x7f0b003b;
-        public static final int set_end=0x7f0b003d;
-        public static final int set_start=0x7f0b003c;
         public static final int shortcut=0x7f0b002e;
         public static final int showCustom=0x7f0b000b;
         public static final int showHome=0x7f0b000c;
